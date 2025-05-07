@@ -28,19 +28,19 @@
                     <button id="button_check_account" class="display_a" onclick="checkAccount()">Login to dashboard</button>
                     <div style="margin: 0px;" class="display_b">   
                         <button id="button_check_account" onclick="addAccount()">Create a new account</button>
-                        <button onclick="changeDisplay()" style="margin-top: 20px;">Way back login</button>
+                        <button onclick="changeDisplay()" style="margin-top: 20px;">Back to login page</button>
                     </div>
                 </div>
             </div>
             <div class="display_a" style="margin: 0px;">
                 <div>
-                    <button>Sign in with Google</button>
+                    <button onclick="loginGoogle()">Sign in with Google</button>
                 </div>
                 <div>
-                    <button>Sign in with Microsoft</button>
+                    <button onclick="loginMicrosoft()">Sign in with Microsoft</button>
                 </div>
                 <div>
-                    <button id="SSO">Sign in with SSO</button>
+                    <button id="SSO" onclick="loginSSO()">Sign in with SSO</button>
                 </div>
             </div>
             <div class="display_a" style="text-align: center; margin: 0px;">

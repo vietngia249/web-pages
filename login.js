@@ -81,6 +81,18 @@ function addAccount() {
     localStorage.setItem('account', JSON.stringify(account));
 }
 
+function loginGoogle() {
+    alert("waiting for next update")
+}
+
+function loginMicrosoft() {
+    alert("waiting for next update")
+}
+
+function loginSSO() {
+    alert("waiting for next update")
+}
+
 function resetAccount() {
     localStorage.removeItem('account');
 }
