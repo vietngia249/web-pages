@@ -2,10 +2,10 @@ var account = JSON.parse(localStorage.getItem('account')) || {
     'adminAccount@gmail.com': 'password123'
 }
 
-const inputEmail = document.querySelector('#email')
-const inputPassword = document.querySelector('#password')
-const errorEmail = document.querySelector('#error_email')
-const errorAccount = document.querySelector('#email_password_incorrect')
+// const inputEmail = document.querySelector('#email')
+// const inputPassword = document.querySelector('#password')
+// const errorEmail = document.querySelector('#error_email')
+// const errorAccount = document.querySelector('#email_password_incorrect')
 
 function isEmail() {
     const text = document.querySelector('#email').value.trim()
@@ -14,26 +14,33 @@ function isEmail() {
 }
 
 function checkAccount() {
+    const inputEmail = document.querySelector('#email')
+    const inputPassword = document.querySelector('#password')
+    const errorEmail = document.querySelector('#error_email')
+    const errorPassword = document.querySelector('#error_password')
+    const errorAccount = document.querySelector('#email_password_incorrect')
+
+    const email = inputEmail.value.trim()
+    const password = inputPassword.value
+
+    if (password === '') {
+        errorPassword.style.display = 'block'
+    } else {
+        errorPassword.style.display = 'none'
+    }
+
     if (!isEmail()) {
         errorEmail.style.display = 'block'
     } else {
-        const inputEmail = document.querySelector('#email')
-        const inputPassword = document.querySelector('#password')
-        const errorEmail = document.querySelector('#error_email')
-        const errorAccount = document.querySelector('#email_password_incorrect')
+        errorEmail.style.display = 'none'
 
-        const email = inputEmail.value.trim()
-        const password = inputPassword.value
-
-        inputEmail.value = ''
-        inputPassword.value = ''
-
-        if (account[email] === password) {
-            errorEmail.style.display = 'none'
-            errorAccount.style.display = 'none'
-            alert('Login successfully')
-        } else {
-            errorAccount.style.display = 'block'
+        if (!((password === ''))) {
+            if (account[email] === password) {
+                errorAccount.style.display = 'none'
+                alert('Login successfully')
+            } else {
+                errorAccount.style.display = 'block'
+            }
         }
     }
 }
@@ -42,7 +49,11 @@ function changeDisplay() {
     const displayA = document.querySelectorAll('.display_a')
     const displayB = document.querySelector('.display_b')
 
+    document.querySelector('#email_password_incorrect').style.display = 'none'
+    document.querySelector('#email_duplicate').style.display = 'none'
+
     if (displayB.style.display === 'none') {
+        
         displayB.style.display = 'block'
         displayA.forEach(function (x) {
             x.style.display = 'none'
@@ -56,28 +67,43 @@ function changeDisplay() {
 }
 
 function addAccount() {
+    const inputEmail = document.querySelector('#email')
+    const inputPassword = document.querySelector('#password')
+    const errorEmail = document.querySelector('#error_email')
+    const errorPassword = document.querySelector('#error_password')
+    const emailDuplicate = document.querySelector('#email_duplicate')
+
+    const email = inputEmail.value.trim()
+    const password = inputPassword.value
+
+    if (password === '') {
+        errorPassword.style.display = 'block'
+    } else {
+        errorPassword.style.display = 'none'
+    }
+
     if (!isEmail()) {
         errorEmail.style.display = 'block'
     } else {
-        const inputEmail = document.querySelector('#email')
-        const inputPassword = document.querySelector('#password')
-        const errorEmail = document.querySelector('#error_email')
-        const errorAccount = document.querySelector('#email_password_incorrect')
+        errorEmail.style.display = 'none'
 
-        const email = inputEmail.value.trim()
-        const password = inputPassword.value
+        if (!(password === '')) {
+            if (Object.keys(account).indexOf(email) === -1) {
+                emailDuplicate.style.display = 'none'
 
-        inputEmail.value = ''
-        inputPassword.value = ''
+                inputEmail.value = ''
+                inputPassword.value = ''
 
-        if (Object.keys(account).indexOf(email) === -1) {
-            errorEmail.style.display = 'none'
-            account[email] = password
-            alert("create a new account successfully")
-        } else {
-            errorAccount.style.display = 'block'
+                account[email] = password
+                alert("create a new account successfully")
+            } else {
+                emailDuplicate.style.display = 'block'
+            }
         }
     }
+
+    
+
     localStorage.setItem('account', JSON.stringify(account));
 }
 

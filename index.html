@@ -12,6 +12,7 @@
             <div style="margin: 0px;">
                 <div>
                     <p id="email_password_incorrect">Entered email address or password is incorrect.</p>
+                    <p id="email_duplicate">Entered email duplicate.</p>
                 </div>
                 <div>
                     <label for="email">Email address</label>
@@ -23,6 +24,7 @@
                     <label for="password">Password</label>
                     <br />
                     <input id="password" type="password" placeholder="Your secret password" required>
+                    <p id="error_password">Password is required</p>
                 </div>
                 <div>
                     <button id="button_check_account" class="display_a" onclick="checkAccount()">Login to dashboard</button>
@@ -57,5 +59,4 @@
         </div>
         <script src="login.js"></script>
     </body>
-    
 </html>
