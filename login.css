@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+:root {
+    --backgrount-color-html: aliceblue;
+    --backgrount-color-button-input: gray;
+    --background-color-check-account: rgb(76, 76, 203);
+    --border-color-SSO: rgb(209, 208, 208);
+    --background-color-error: rgb(238, 194, 194);
+    --color-error: rgb(239, 22, 22);
+}
+    
+html {
+    background-color: var(--backgrount-color-html);
+    width: 100%;
+    height: 100%;
+}
+
+div {
+    margin: 20px;
+}
+
+.div_first {
+    width: 100vw;
+    height: 20vh;
+    margin: 10px;
+}
+
+.div_second {
+    width: 400px;
+    margin: 10px;
+    margin-left: calc(50% - 200px);
+    margin-right: calc(50% - 200px);
+}
+
+.div_end {
+    height: 20vh;
+}
+
+
+input {
+    width: 100%;
+    height: 35px;
+    border: 1px solid var(--backgrount-color-button-input);
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    height: 35px;
+    border: 1px solid var(--backgrount-color-button-input);
+    border-radius: 5px;
+}
+
+#title_page {
+    margin-left: 20px;
+}
+
+#email_password_incorrect {
+    display: none;
+    background-color: var(--background-color-error);
+    color: var(--color-error);
+    align-content: center;
+    width: 100%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid white;
+}
+
+#error_email {
+    display: none;
+    margin: 0;
+    font-size: 12px;
+    color: var(--color-error);
+}
+
+#button_check_account {
+    background-color: var(--background-color-check-account);
+    color: white;
+}
+
+#SSO {
+    border-color: var(--border-color-SSO);
+}
+
+#creative_account {
+    background-color: white;
+    margin: 0 auto;
+    display: block;
+    width: 50%;
+    height: 25px;
+    border-radius: 5px;
+    border: 1px solid ;
+}
