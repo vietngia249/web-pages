@@ -22,6 +22,14 @@ div {
     margin: 20px;
 }
 
+.display_a {
+    display: block;
+}
+
+.display_b {
+    display: none;
+}
+
 .div_first {
     width: 100vw;
     height: 20vh;

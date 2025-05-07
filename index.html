@@ -9,7 +9,7 @@
         <div class="div_first"></div>
         <div class="div_second">
             <h2 id="title_page" draggable="true">taskbase</h2>
-            <form style="margin: 0px;">
+            <div style="margin: 0px;">
                 <div>
                     <p id="email_password_incorrect">Entered email address or password is incorrect.</p>
                 </div>
@@ -25,10 +25,14 @@
                     <input id="password" type="password" placeholder="Your secret password" required>
                 </div>
                 <div>
-                    <button id="button_check_account" onclick="">Login to dashboard</button>
+                    <button id="button_check_account" class="display_a" onclick="checkAccount()">Login to dashboard</button>
+                    <div style="margin: 0px;" class="display_b">   
+                        <button id="button_check_account" onclick="addAccount()">Create a new account</button>
+                        <button onclick="changeDisplay()" style="margin-top: 20px;">Way back login</button>
+                    </div>
                 </div>
-            </form>
-            <div style="margin: 0px;">
+            </div>
+            <div class="display_a" style="margin: 0px;">
                 <div>
                     <button>Sign in with Google</button>
                 </div>
@@ -39,18 +43,19 @@
                     <button id="SSO">Sign in with SSO</button>
                 </div>
             </div>
-            <div  style="text-align: center; margin: 0px;">
+            <div class="display_a" style="text-align: center; margin: 0px;">
                 <div>
-                    <p>Did you forget your password? <a href="#">Reset it now.</a></p>
+                    <p >Did you forget your password? <a href="#">Reset it now.</a></p>
                 </div>
                 <div>
                     <p>Don't have an account yet?</p>
-                    <a id="creative_account" href="#">Create a new one</a>
+                    <button onclick="changeDisplay()">Create a new one</button>
                 </div>
             </div>
         </div>
         <div class="div_end">
         </div>
+        <script src="login.js"></script>
     </body>
-    <script src="login.js"></script>
+    
 </html>
