@@ -5,13 +5,15 @@ var account = JSON.parse(localStorage.getItem('account')) || {
 const inputEmail = document.querySelector('#email')
 const inputPassword1 = document.querySelector('#password1')
 const inputPassword2 = document.querySelector('#password2')
-const errorEmail = document.querySelector('#error_email')
+const errorInvalidEmail = document.querySelector('#invalid_email')
+const errorEmailExists = document.querySelector('#email_exists')
 const errorPasswordRequired = document.querySelector('#password_required')
 const errorPasswordNotSame = document.querySelector('#password_not_same')
 
 // phuong thuc xoa cac thong bao loi
 function clearErrorMessages() {
-    errorEmail.style.display = 'none'
+    errorInvalidEmail.style.display = 'none'
+    errorEmailExists.style.display = 'none'
     errorPasswordRequired.style.display = 'none'
     errorPasswordNotSame.style.display = 'none'
 }
@@ -25,9 +27,14 @@ function isEmail(email) {
 // phuong thuc kiem tra tai khoan co ton tai hay khong
 function findAccount(email) {
     if (isEmail(email)) {
-        return (account[email])
+        if (account[email]) {
+            errorEmailExists.style.display = 'block'
+            return true
+        } else {
+            return false
+        }
     } else {
-        errorEmail.style.display = 'block'
+        errorInvalidEmail.style.display = 'block'
         return false
     }
 }
