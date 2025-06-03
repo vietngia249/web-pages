@@ -8,16 +8,12 @@ const inputPassword2 = document.querySelector('#password2')
 const errorEmail = document.querySelector('#error_email')
 const errorPasswordRequired = document.querySelector('#password_required')
 const errorPasswordNotSame = document.querySelector('#password_not_same')
-const errorAccount = document.querySelector('#email_password_incorrect')
-const emailDuplicate = document.querySelector('#email_duplicate')
 
 // phuong thuc xoa cac thong bao loi
 function clearErrorMessages() {
     errorEmail.style.display = 'none'
-    errorAccount.style.display = 'none'
     errorPasswordRequired.style.display = 'none'
     errorPasswordNotSame.style.display = 'none'
-    emailDuplicate.style.display = 'none'
 }
 
 // phuong thuc kiem tra co phai la email hay khong
