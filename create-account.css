@@ -9,7 +9,7 @@
     --bg-html: rgba(240, 244, 244, 0.68);
     --bg-input: rgb(250, 250, 250);
     --border-input: rgb(206, 228, 234);
-    --bg-button-create: rgb(41, 71, 206);
+    --bg-button-blue: rgb(41, 71, 206);
     --bg-error: rgb(238, 194, 194);
     --color-error: rgb(239, 22, 22);
 }
@@ -92,14 +92,14 @@ button {
     color: var(--color-error);
 }
 
-#invalid_email,
+#email_invalid,
 #email_exists,
 #password_required,
 #password_not_same {
     display: none;
 }
 
-.button_create_account {
-    background-color: var(--bg-button-create);
+.button_blue {
+    background-color: var(--bg-button-blue);
     color: white;
 }

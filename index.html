@@ -16,7 +16,7 @@
                     <label for="email">Email address</label>
                     <br />
                     <input id="email" class="input-email-icon" type="email" placeholder="your@email.address" required>
-                    <p id="invalid_email" class="error">Invalid email address</p>
+                    <p id="email_invalid" class="error">Invalid email address</p>
                     <p id="email_exists" class="error">Email already exists</p>
                 </div>
                 <div>
@@ -33,12 +33,12 @@
                 </div>
                 <div>
                     <div style="margin: 0px;">
-                        <button class="button_create_account" onclick="createAccount(event)">Create a new account</button>
+                        <button class="button_blue" onclick="createAccount(event)">Create a new account</button>
                     </div>
                 </div>
             </form>
             <div>
-                <button onclick="goToLoginPage()" style="margin-top: 20px;">Back to login page</button>
+                <button onclick="goToLogin()" style="margin-top: 20px;">Back to login page</button>
             </div>
         </div>
         <div class="space"></div>

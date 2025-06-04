@@ -1,57 +1,48 @@
-var account = JSON.parse(localStorage.getItem('account')) || {
+// khoi tao tai khoan tu localStorage hoac mac dinh
+let account = JSON.parse(localStorage.getItem('account')) || {
     'adminAccount@gmail.com': 'password123'
 }
 
+// DOM Elements
 const inputEmail = document.querySelector('#email')
 const inputPassword1 = document.querySelector('#password1')
 const inputPassword2 = document.querySelector('#password2')
-const errorInvalidEmail = document.querySelector('#invalid_email')
+const errorEmailInvalid = document.querySelector('#email_invalid')
 const errorEmailExists = document.querySelector('#email_exists')
 const errorPasswordRequired = document.querySelector('#password_required')
 const errorPasswordNotSame = document.querySelector('#password_not_same')
 
-// phuong thuc xoa cac thong bao loi
+// cac phuong thuc hien thi loi
 function clearErrorMessages() {
-    errorInvalidEmail.style.display = 'none'
+    errorEmailInvalid.style.display = 'none'
     errorEmailExists.style.display = 'none'
     errorPasswordRequired.style.display = 'none'
     errorPasswordNotSame.style.display = 'none'
 }
 
-// phuong thuc kiem tra co phai la email hay khong
-function isEmail(email) {
+function showError(element) {
+    element.style.display = 'block'
+}
+
+// phuong thuc kiem tra du lieu dau vao
+function isEmailValid(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     return emailRegex.test(email)
 }
 
-// phuong thuc kiem tra tai khoan co ton tai hay khong
-function findAccount(email) {
-    if (isEmail(email)) {
-        if (account[email]) {
-            errorEmailExists.style.display = 'block'
-            return true
-        } else {
-            return false
-        }
-    } else {
-        errorInvalidEmail.style.display = 'block'
-        return false
-    }
+function isEmailExists(email) {
+    return account[email] !== undefined
 }
 
-// phuong thuc kiem tra password co hop le hay khong
-function isValidPassword(password1, password2) {
-    if (password1 === '' || password2 === '') {
-        errorPasswordRequired.style.display = 'block'
-    } else if (password1 !== password2) {
-        errorPasswordNotSame.style.display = 'block'
-    } else {
-        return true
-    }
-    return false
+function isPasswordFilled(password1, password2) {
+    return password1 !== '' && password2 !== ''
 }
 
-// phuong thuc tao va luu tai khoan
+function isPasswordMatching(password1, password2) {
+    return password1 === password2
+}
+
+// phuong thuc luu tai khoan va chuyen huong
 function saveAccount(email, password) {
     account[email] = password
     localStorage.setItem('account', JSON.stringify(account));
@@ -61,33 +52,40 @@ function saveAccount(email, password) {
     alert("Create a new account successfully")
 }
 
-// phuong thuc chuyen huong den login page
-function goToLoginPage() {
+function goToLogin() {
     window.location.href = 'https://vietngia249.github.io/login-website/'
 }
 
-// phuong thuc tao tai khoan moi
+// phuong thuc xu ly tao tai khoan moi
 function createAccount(event) {
     event.preventDefault()
-
-    // xoa cac thong bao loi
     clearErrorMessages()
 
-    // kiem tra email
     const email = inputEmail.value.trim()
-    if (findAccount(email)) {
-        return false
-    }
-
-    // kiem tra password
     const password1 = inputPassword1.value
     const password2 = inputPassword2.value
-    if (!isValidPassword(password1, password2)) {
+
+    if (!isEmailValid(email)) {
+        showError(errorEmailInvalid)
         return false
     }
 
-    // tao tai khoan moi
+    if (isEmailExists(email)) {
+        showError(errorEmailExists)
+        return false
+    }
+
+    if (!isPasswordFilled(password1, password2)) {
+        showError(errorPasswordRequired)
+        return false
+    }
+
+    if (!isPasswordMatching(password1, password2)) {
+        showError(errorPasswordNotSame)
+        return false
+    }
+
     saveAccount(email, password1)
-    goToLoginPage()
+    goToLogin()
     return true
 }
