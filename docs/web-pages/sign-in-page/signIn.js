@@ -42,7 +42,7 @@ function isAccountValid(email, password) {
 }
 
 function goToCreateAccount() {
-    window.location.href = 'https://vietngia249.github.io/create-account/'
+    window.location.href = 'https://vietngia249.github.io/web-pages/web-pages/sign-up-page/'
 }
 
 // phuong thuc xu ly dang nhap
