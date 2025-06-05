@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <title>Simplify Digital Community Management | Talkbase.io</title>
+        <link rel="stylesheet" href="login.css">
+    </head>
+    <body>
+        <div class="space"></div>
+        <div class="middle">
+            <div>
+                <img class="logo" src="https://talkbase.io/logos/talkbase/logo_on_light_bg.svg">
+            </div>
+            <form onsubmit="loginAccount(event)" style="margin: 0px; ">
+                <div>
+                    <p id="account_invalid">Entered email address or password is incorrect.</p>
+                </div>
+                <div>
+                    <label for="email">Email address</label>
+                    <br />
+                    <input id="email" class="input-email-icon" type="email" placeholder="your@email.address" required>
+                    <p id="email_invalid" class="error">Invalid email address</p>
+                </div>
+                <div>
+                    <label for="password">Password</label>
+                    <br />
+                    <input id="password" class="input-password-icon" type="password" placeholder="Your secret password" required>
+                    <p id="password_required" class="error">Password is required</p>
+                </div>
+                <div>
+                    <button class="button_blue" onclick="loginAccount(event)">Login to dashboard</button>
+                </div>
+            </form>
+            <div style="margin: 0px;">
+                <div>
+                    <button class="icon-gg" onclick="loginGoogle()">Sign in with Google</button>
+                </div>
+                <div>
+                    <button class="icon-mcs" onclick="loginMicrosoft()">Sign in with Microsoft</button>
+                </div>
+                <div>
+                    <button id="SSO" onclick="loginSSO()">Sign in with SSO</button>
+                </div>
+            </div>
+            <div style="text-align: center; margin: 0px;">
+                <div>
+                    <p >Did you forget your password? <a href="#">Reset it now.</a></p>
+                </div>
+                <div>
+                    <p>Don't have an account yet?</p>
+                    <button onclick="goToCreateAccount()">Create a new one</button>
+                </div>
+            </div>
+        </div>
+        <div class="space"></div>
+        <script src="login.js"></script>
+    </body>
+</html>
